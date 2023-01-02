@@ -2,7 +2,15 @@
 
 This is a made-for-fun gem that will get information provided in standard IMDB charts (currently just Top 250 films, Bottom 100 films, and Top 250 TV shows). Please be advised that this uses web scraping and could stop working if the IMDB site design were to change.
 
-TODO: Add usage.
+## Usage
+
+- Create a new instance of `ImdbChart::StandardChart` with an optional chart-type parameter of `:top_films`, `:bottom_films`, or `top_tv_shows`. It defaults to `:top_films`.
+- The resulting instance of `ImdbChart::StandardChart` will contain the following attributes:
+  - **chart_type**: the chart type
+  - **contents**: an array of hashes containing the results on the page (keys are ranking, title, and year)
+  - **imdb_url**: URL of the page from which we got the results
+  - **retrieval_time**: `DateTime` of when the contents were retrieved
+- Example: `ImdbChart::StandardChart.new( :top_films )`
 
 ## Development
 
